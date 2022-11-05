@@ -202,6 +202,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
+
 ALTER TABLE hr.historico_cargos ADD CONSTRAINT empregados_historico_cargos_fk
 FOREIGN KEY (id_empregado)
 REFERENCES hr.empregados (id_empregado)
