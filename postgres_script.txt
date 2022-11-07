@@ -11,11 +11,14 @@ CREATE DATABASE uvv
     IS_TEMPLATE = False;
 
 COMMENT ON DATABASE uvv
-    IS 'Banco de dados para o trabalho ';
+    IS 'Banco de dados para o trabalho';
+
+    \c uvv
     
    create schema hr;
    
-  
+  SET SEARCH_PATH TO hr;
+
 CREATE TABLE hr.cargos (
                 id_cargo VARCHAR(10) NOT NULL,
                 cargo VARCHAR(35) NOT NULL,
@@ -109,8 +112,8 @@ CREATE TABLE hr.empregados (
                 id_cargo VARCHAR(10) NOT NULL,
                 salario NUMERIC(8,2),
                 comissao NUMERIC(4,2),
-                id_departamento INTEGER NOT NULL,
-                id_supervisor INTEGER NOT NULL,
+                id_departamento INTEGER,
+                id_supervisor INTEGER,
                 CONSTRAINT empregados_pk PRIMARY KEY (id_empregado)
 );
 COMMENT ON TABLE hr.empregados IS 'tabela que armazena informações referentes aos empregados da empresa.';
@@ -209,3 +212,22 @@ REFERENCES hr.empregados (id_empregado)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
+
+INSERT INTO hr.empregados (id_empregado, nome, email,
+telefone, data_contratacao, id_cargo, salario,
+comissao, id_supervisor, id_departamento) VALUES
+(100, 'Steven King', 'SKING', '515.123.4567', '2003-06-17', 'AD_PRES', 24000, null, null, 90);
+
+
+
+
+
+
+
+
+
+
+select 
+insert into regioes (id_regiao, nome) values(
+    ' || region_id || ', ''' || regon_name || '''
+);
