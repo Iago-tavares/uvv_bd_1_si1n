@@ -1012,3 +1012,4 @@ INSERT INTO historico_cargos ( id_empregado, id_cargo, data_inicial, data_final,
 INSERT INTO historico_cargos ( id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 (200, 'AC_ACCOUNT', 01-07-02, 31-12-06, 90
 );
+
