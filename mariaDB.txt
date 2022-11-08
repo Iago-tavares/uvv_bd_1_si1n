@@ -108,9 +108,8 @@ CREATE TABLE historico_cargos (
                 id_cargo VARCHAR(10) NOT NULL,
                 data_inicial DATE NOT NULL,
                 data_final DATE NOT NULL,
-                id_departamento INT,
-                PRIMARY KEY (id_empregado)
-);
+                id_departamento INT
+                );
 
 ALTER TABLE historico_cargos COMMENT 'Tabela que armazena o histórico de cargos de um empregado, se houver mudança no cargo ou departamento de um empregado essa tabela deve ser atualizada com o cargo antigo';
 
