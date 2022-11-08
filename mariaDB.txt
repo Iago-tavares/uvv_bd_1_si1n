@@ -1,3 +1,7 @@
+drop database uvv;
+
+drop user if exists iago;
+
 create user iago identified by 'raiz';
 
 create database uvv;
