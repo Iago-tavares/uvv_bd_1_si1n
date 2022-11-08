@@ -982,4 +982,34 @@ comissao, id_supervisor, id_departamento) VALUES
 
 /* processo de popular a tabela historico_cargos */ 
 
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 102, 'IT_PROG', '2001-01-13, '2006-07-24, 60
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 101, 'AC_ACCOUNT', '1997-09-21, '2001-10-27, 110
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 101, 'AC_MGR', '2001-10-28, '2005-03-15, 110
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 201, 'MK_REP', '2004-02-17, '2007-12-19, 20
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 114, 'ST_CLERK', '2006-03-24, '2007-12-31, 50
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 122, 'ST_CLERK', '2007-01-01, '2007-12-31, 50
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 200, 'AD_ASST', '1995-09-17, '2001-06-17, 90
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 176, 'SA_REP', '2006-03-24, '2006-12-31, 80
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 176, 'SA_MAN', '2007-01-01, '2007-12-31, 80
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+( 200, 'AC_ACCOUNT', '2002-07-01, '2006-12-31, 90
+);
 
