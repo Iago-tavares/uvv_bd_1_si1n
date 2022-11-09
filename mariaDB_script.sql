@@ -1,223 +1,180 @@
 drop database uvv;
 
-drop user iago;
+drop user if exists iago;
 
-create user iago; 
 
-CREATE DATABASE uvv
-    WITH
-    OWNER = iago
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'Portuguese_Brazil.1252'
-    LC_CTYPE = 'Portuguese_Brazil.1252'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
+create user iago identified by 'raiz';
 
-COMMENT ON DATABASE uvv
-    IS 'Banco de dados para o trabalho';
+create database uvv;
+grant all privileges on uvv.* to 'iago';
 
-    \c uvv
-    
-   create schema hr;
+EXIT
+
+mysql -u iago -p
+raiz
+
+use uvv;
    
-  SET SEARCH_PATH TO hr;
 
-CREATE TABLE hr.cargos (
+
+CREATE TABLE cargos (
                 id_cargo VARCHAR(10) NOT NULL,
                 cargo VARCHAR(35) NOT NULL,
-                salario_minimo NUMERIC(8,2),
-                salario_maximo NUMERIC(8,2),
-                CONSTRAINT cargos_pk PRIMARY KEY (id_cargo)
+                salario_minimo DECIMAL(8,2),
+                salario_maximo DECIMAL(8,2),
+                PRIMARY KEY (id_cargo)
 );
-COMMENT ON TABLE hr.cargos IS 'tabela que armazena os cargos existentes assim como o salario minimo e maximo para cada cargo.';
-COMMENT ON COLUMN hr.cargos.id_cargo IS 'id individual de cada cargo, usado como chave primaria.';
-COMMENT ON COLUMN hr.cargos.cargo IS 'nome de cada cargo exercido na empresa.';
-COMMENT ON COLUMN hr.cargos.salario_minimo IS 'valor minimo para o salario de cada cargo escrito em numeros decimais.';
-COMMENT ON COLUMN hr.cargos.salario_maximo IS 'valor maximo para o salario de cada cargo escrito em numeros decimais.';
+
+ALTER TABLE cargos COMMENT 'tabela que armazena os cargos existentes assim como o salario minimo e maximo para cada cargo.';
 
 
 CREATE UNIQUE INDEX cargos_idx
- ON hr.cargos
+ ON cargos
  ( cargo );
 
-CREATE TABLE hr.regioes (
-                id_regiao INTEGER NOT NULL,
+CREATE TABLE regioes (
+                id_regiao INT NOT NULL,
                 nome VARCHAR(25) NOT NULL,
-                CONSTRAINT regioes_pk PRIMARY KEY (id_regiao)
+                PRIMARY KEY (id_regiao)
 );
-COMMENT ON TABLE hr.regioes IS 'tabela referrente ao id e nome das regiões.';
-COMMENT ON COLUMN hr.regioes.id_regiao IS 'coluna que corresponde ao id unico de cada região como uma PK.';
-COMMENT ON COLUMN hr.regioes.nome IS 'coluna que corresponde ao nome unico de cada região.';
+
+ALTER TABLE regioes COMMENT 'tabela referrente ao id e nome das regiões.';
 
 
 CREATE UNIQUE INDEX regioes_idx
- ON hr.regioes
+ ON regioes
  ( nome );
 
-CREATE TABLE hr.paises (
+CREATE TABLE paises (
                 id_pais CHAR(2) NOT NULL,
-                id_regiao INTEGER,
+                id_regiao INT,
                 nome VARCHAR(50) NOT NULL,
-                CONSTRAINT paises_pk PRIMARY KEY (id_pais)
+                PRIMARY KEY (id_pais)
 );
-COMMENT ON TABLE hr.paises IS 'tabela que armazena informaçoes sobre os paises.';
-COMMENT ON COLUMN hr.paises.id_pais IS 'coluna que corresponde ao id unico de cada país como uma PK.';
-COMMENT ON COLUMN hr.paises.id_regiao IS 'coluna que faz referrencia ao id da região de cada país, usando como referencia a tabela regioes.';
-COMMENT ON COLUMN hr.paises.nome IS 'coluna que corresponde ao nome unico de cada país.';
+
+ALTER TABLE paises COMMENT 'tabela que armazena informaçoes sobre os paises.';
 
 
 CREATE UNIQUE INDEX paises_idx
- ON hr.paises
+ ON paises
  ( nome );
 
-CREATE TABLE hr.localizacao (
-                id_localizacao INTEGER NOT NULL,
+CREATE TABLE localizacao (
+                id_localizacao INT NOT NULL,
                 id_pais CHAR(2),
                 endereco VARCHAR(50),
                 cep VARCHAR(12),
                 cidade VARCHAR(50),
                 uf VARCHAR(25),
-                CONSTRAINT localizacao_pk PRIMARY KEY (id_localizacao)
+                PRIMARY KEY (id_localizacao)
 );
-COMMENT ON TABLE hr.localizacao IS 'tabela que armazena informaçoes sobre a localização de facilidades da empresa';
-COMMENT ON COLUMN hr.localizacao.id_localizacao IS 'coluna que corresponde ao id unico de cada localização como uma PK.';
-COMMENT ON COLUMN hr.localizacao.id_pais IS 'coluna que faz referrencia ao id do país de cada localização, usando como referencia a tabela paises.';
-COMMENT ON COLUMN hr.localizacao.endereco IS 'coluna que contem as informaçoes do endereço de cada localização das facilidades da empresa.';
-COMMENT ON COLUMN hr.localizacao.cep IS 'coluna que contem as informaçoes do CEP de cada localização das facilidades da empresa.';
-COMMENT ON COLUMN hr.localizacao.cidade IS 'coluna que contem as informaçoes da cidade de cada localização das facilidades da empresa.';
-COMMENT ON COLUMN hr.localizacao.uf IS 'coluna que contem as informaçoes do  Unidade da Federação de cada localização das facilidades da empresa.';
+
+ALTER TABLE localizacao COMMENT 'tabela que armazena informaçoes sobre a localização de facilidades da empresa';
 
 
-CREATE TABLE hr.departamentos (
-                id_departamento INTEGER NOT NULL,
-                id_gerente INTEGER,
+CREATE TABLE departamentos (
+                id_departamento INT NOT NULL,
+                id_gerente INT,
                 nome VARCHAR(50),
-                id_localizacao INTEGER,
-                CONSTRAINT departamentos_pk PRIMARY KEY (id_departamento)
+                id_localizacao INT,
+                PRIMARY KEY (id_departamento)
 );
-COMMENT ON TABLE hr.departamentos IS 'tabela que contem informações sobre cada departamento da empresa.';
-COMMENT ON COLUMN hr.departamentos.id_departamento IS 'coluna que corresponde ao id unico de cada departamento como uma PK.';
-COMMENT ON COLUMN hr.departamentos.id_gerente IS 'coluna que corresponde ao id unico do gerente de cada departamento.';
-COMMENT ON COLUMN hr.departamentos.nome IS 'coluna que contem as informaçoes do nome unico de cada departamento da empresa.';
-COMMENT ON COLUMN hr.departamentos.id_localizacao IS 'coluna que faz referrencia ao id da localiazação de cada departamento, usando como referencia a tabela localizacao.';
+
+ALTER TABLE departamentos COMMENT 'tabela que contem informações sobre cada departamento da empresa.';
 
 
 CREATE UNIQUE INDEX departamentos_idx
- ON hr.departamentos
+ ON departamentos
  ( id_gerente, nome );
 
-CREATE TABLE hr.empregados (
-                id_empregado INTEGER NOT NULL,
+CREATE TABLE empregados (
+                id_empregado INT NOT NULL,
                 nome VARCHAR(75) NOT NULL,
                 email VARCHAR(35) NOT NULL,
                 telefone VARCHAR(20),
                 data_contratacao DATE NOT NULL,
                 id_cargo VARCHAR(10) NOT NULL,
-                salario NUMERIC(8,2),
-                comissao NUMERIC(4,2),
-                id_departamento INTEGER,
-                id_supervisor INTEGER,
-                CONSTRAINT empregados_pk PRIMARY KEY (id_empregado)
+                salario DECIMAL(8,2),
+                comissao DECIMAL(4,2),
+                id_departamento INT,
+                id_supervisor INT,
+                PRIMARY KEY (id_empregado)
 );
-COMMENT ON TABLE hr.empregados IS 'tabela que armazena informações referentes aos empregados da empresa.';
-COMMENT ON COLUMN hr.empregados.id_empregado IS 'coluna que corresponde ao id unico de cada empregado como uma PK.';
-COMMENT ON COLUMN hr.empregados.nome IS 'coluna que contem as informaçoes do nome de cada empregado da empresa.';
-COMMENT ON COLUMN hr.empregados.email IS 'coluna que corresponde ao e-mail pessoal de cada funcionario.';
-COMMENT ON COLUMN hr.empregados.telefone IS 'coluna que contem as informaçoes do telefone de cada empregado da empresa.';
-COMMENT ON COLUMN hr.empregados.data_contratacao IS 'coluna que contem as informaçoes sobre a data de contratação de cada empregado da empresa.';
-COMMENT ON COLUMN hr.empregados.id_cargo IS 'coluna que faz referrencia ao id do cargo exercido por cada empregado, usando como referencia a tabela cargos.';
-COMMENT ON COLUMN hr.empregados.salario IS 'coluna que contem as informaçoes sobre os salarios de cada funcionario da empresa.';
-COMMENT ON COLUMN hr.empregados.comissao IS 'coluna referrente a comissão recebida por funcionarios do departamento de vendas após realizar uma venda com sucesso';
-COMMENT ON COLUMN hr.empregados.id_departamento IS 'coluna que faz referrencia ao id do depattamento ao qual cada empregado pertence, usando como referencia a tabela departamentos.';
-COMMENT ON COLUMN hr.empregados.id_supervisor IS 'coluna que corresponde ao id do supervisor dirreto de cada empregado.';
+
+ALTER TABLE empregados COMMENT 'tabela que armazena informações referentes aos empregados da empresa.';
 
 
 CREATE UNIQUE INDEX empregados_idx
- ON hr.empregados
+ ON empregados
  ( email );
 
-CREATE TABLE hr.historico_cargos (
-                id_empregado INTEGER NOT NULL,
-                id_cargo VARCHAR(10) NOT NULL,
+CREATE TABLE historico_cargos (
+                id_empregado INT NOT NULL,
                 data_inicial DATE NOT NULL,
+                id_cargo VARCHAR(10) NOT NULL,
                 data_final DATE NOT NULL,
-                id_departamento INTEGER,
-                CONSTRAINT historico_cargos_pk PRIMARY KEY (id_empregado)
+                id_departamento INT,
+                PRIMARY KEY (id_empregado, data_inicial)
 );
-COMMENT ON TABLE hr.historico_cargos IS 'Tabela que armazena o histórico de cargos de um empregado, se houver mudança no cargo ou departamento de um empregado essa tabela deve ser atualizada com o cargo antigo';
-COMMENT ON COLUMN hr.historico_cargos.id_empregado IS 'coluna que corresponde ao id unico de cada empregado como uma PK, enquanto referencia a tabela empregados como uma FK';
-COMMENT ON COLUMN hr.historico_cargos.id_cargo IS 'coluna que faz referrencia ao id do cargo que era exercido por cada empregado, usando como referencia a tabela cargos.';
-COMMENT ON COLUMN hr.historico_cargos.data_inicial IS 'coluna que armazena as informações sobre a data em que o empregado começou a exercer sua antiga função.';
-COMMENT ON COLUMN hr.historico_cargos.data_final IS 'coluna que armazena as informações sobre a data em que o empregado deixou de exercer sua antiga função.';
-COMMENT ON COLUMN hr.historico_cargos.id_departamento IS 'coluna que faz referrencia ao id do depattamento ao qual cada empregado pertence ou pertenceu, usando como referencia a tabela departamentos.';
+
+ALTER TABLE historico_cargos COMMENT 'Tabela que armazena o histórico de cargos de um empregado, se houver mudança no cargo ou departamento de um empregado essa tabela deve ser atualizada com o cargo antigo';
 
 
-ALTER TABLE hr.empregados ADD CONSTRAINT cargos_empregados_fk
+ALTER TABLE empregados ADD CONSTRAINT cargos_empregados_fk
 FOREIGN KEY (id_cargo)
-REFERENCES hr.cargos (id_cargo)
+REFERENCES cargos (id_cargo)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.historico_cargos ADD CONSTRAINT cargos_historico_cargos_fk
+ALTER TABLE historico_cargos ADD CONSTRAINT cargos_historico_cargos_fk
 FOREIGN KEY (id_cargo)
-REFERENCES hr.cargos (id_cargo)
+REFERENCES cargos (id_cargo)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.paises ADD CONSTRAINT regioes_paises_fk
+ALTER TABLE paises ADD CONSTRAINT regioes_paises_fk
 FOREIGN KEY (id_regiao)
-REFERENCES hr.regioes (id_regiao)
+REFERENCES regioes (id_regiao)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.localizacao ADD CONSTRAINT paises_localizacao_fk
+ALTER TABLE localizacao ADD CONSTRAINT paises_localizacao_fk
 FOREIGN KEY (id_pais)
-REFERENCES hr.paises (id_pais)
+REFERENCES paises (id_pais)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.departamentos ADD CONSTRAINT localizacao_departamentos_fk
+ALTER TABLE departamentos ADD CONSTRAINT localizacao_departamentos_fk
 FOREIGN KEY (id_localizacao)
-REFERENCES hr.localizacao (id_localizacao)
+REFERENCES localizacao (id_localizacao)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.empregados ADD CONSTRAINT departamentos_empregados_fk
+ALTER TABLE empregados ADD CONSTRAINT departamentos_empregados_fk
 FOREIGN KEY (id_departamento)
-REFERENCES hr.departamentos (id_departamento)
+REFERENCES departamentos (id_departamento)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.historico_cargos ADD CONSTRAINT departamentos_historico_cargos_fk
+ALTER TABLE historico_cargos ADD CONSTRAINT departamentos_historico_cargos_fk
 FOREIGN KEY (id_departamento)
-REFERENCES hr.departamentos (id_departamento)
+REFERENCES departamentos (id_departamento)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-ALTER TABLE hr.empregados ADD CONSTRAINT empregados_empregados_fk
+ALTER TABLE empregados ADD CONSTRAINT empregados_empregados_fk
 FOREIGN KEY (id_supervisor)
-REFERENCES hr.empregados (id_empregado)
+REFERENCES empregados (id_empregado)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
-
-ALTER TABLE hr.historico_cargos ADD CONSTRAINT empregados_historico_cargos_fk
+ALTER TABLE historico_cargos ADD CONSTRAINT empregados_historico_cargos_fk
 FOREIGN KEY (id_empregado)
-REFERENCES hr.empregados (id_empregado)
+REFERENCES empregados (id_empregado)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
+ON UPDATE NO ACTION;
 
- /* processo de popular a tabela regioes */ 
+ --  processo de popular a tabela regioes  
 
 insert into regioes (id_regiao, nome) values
 (1, 'Europe'
@@ -232,7 +189,7 @@ insert into regioes (id_regiao, nome) values
 (4, 'Middle East and Africa'
 );
 
- /* processo de popular a tabela paises */ 
+ --  processo de popular a tabela paises  
 
 INSERT INTO paises (id_pais, id_regiao, nome) values
 ('AR', 2, 'Argentina'  
@@ -310,7 +267,7 @@ INSERT INTO paises (id_pais, id_regiao, nome) values
 ('ZW', 4, 'Zimbabwe'  
 );
 
-/* processo de popular a tabela localizacao */ 
+--  processo de popular a tabela localizacao  
 
 INSERT INTO localizacao ( id_localizacao, id_pais, 
 endereco, cep, cidade,uf) values 
@@ -405,7 +362,7 @@ endereco, cep, cidade,uf) values
 (3200, 'MX', 'Mariano Escobedo 9991', '11932', 'Mexico City', 'Distrito Federal,'
 );
 
-/* processo de popular a tabela departamento */ 
+--  processo de popular a tabela departamento  
 
 INSERT INTO departamentos ( id_departamento, id_gerente, nome, id_localizacao) values 
 (10, 200,  'Administration', 1700
@@ -489,7 +446,7 @@ INSERT INTO departamentos ( id_departamento, id_gerente, nome, id_localizacao) v
 (270, null ,   'Payroll', 1700
 );
 
-/* processo de popular a tabela cargos */ 
+--  processo de popular a tabela cargos  
 
 INSERT INTO cargos (id_cargo, cargo, salario_minimo, salario_maximo) values
 ('AD_PRES', 'President', 20080, 40000
@@ -549,7 +506,7 @@ INSERT INTO cargos (id_cargo, cargo, salario_minimo, salario_maximo) values
 ('PR_REP', 'Public Relations Representative', 4500, 10500
 );
 
-/* processo de popular a tabela empregados */ 
+--  processo de popular a tabela empregados  
 
 INSERT INTO empregados (id_empregado, nome, email,
 telefone, data_contratacao, id_cargo, salario,
@@ -980,35 +937,35 @@ telefone, data_contratacao, id_cargo, salario,
 comissao, id_supervisor, id_departamento) VALUES
 (206, 'William Gietz', 'WGIETZ', '515.123.8181', '2002-06-07', 'AC_ACCOUNT', 8300, null, 205, 110);
 
-/* processo de popular a tabela historico_cargos */ 
+--  processo de popular a tabela historico_cargos  
 
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 102, 'IT_PROG', '2001-01-13','2006-07-24', 60
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 101, 'AC_ACCOUNT', '1997-09-21','2001-10-27', 110
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 101, 'AC_MGR', '2001-10-28','2005-03-15', 110
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 201, 'MK_REP', '2004-02-17','2007-12-19', 20
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 114, 'ST_CLERK', '2006-03-24','2007-12-31', 50
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 122, 'ST_CLERK', '2007-01-01','2007-12-31', 50
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 200, 'AD_ASST', '1995-09-17','2001-06-17', 90
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 176, 'SA_REP', '2006-03-24','2006-12-31', 80
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 176, 'SA_MAN', '2007-01-01','2007-12-31', 80
-);"
-"insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
+);
+insert into historico_cargos (id_empregado, id_cargo, data_inicial, data_final, id_departamento) values
 ( 200, 'AC_ACCOUNT', '2002-07-01','2006-12-31', 90
-);"
+);
