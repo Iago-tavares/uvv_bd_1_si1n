@@ -1,6 +1,6 @@
 drop database uvv;
 
-drop user iago;
+drop user if iago;
 
 create user iago with password '123';
 alter user iago with SUPERUSER; 
@@ -27,8 +27,6 @@ CREATE DATABASE uvv
 
     psql -u iago uvv  
     123 
-COMMENT ON DATABASE uvv
-    IS 'Banco de dados para o trabalho';
 
     \c uvv;
     

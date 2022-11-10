@@ -8,10 +8,6 @@ create user iago identified by 'raiz';
 create database uvv;
 grant all privileges on uvv.* to 'iago';
 
-EXIT
-
-mysql -u iago -p
-raiz
 
 use uvv;
    
