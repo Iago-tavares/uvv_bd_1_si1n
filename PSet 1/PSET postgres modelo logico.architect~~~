@@ -151,7 +151,7 @@
     <column id="COL44" populated="true" UUID="fac9976c-c9a1-4f8b-a2a3-0f6e85c8a608" autoIncrement="false" autoIncrementSequenceName="empregados_id_departamento_seq" defaultValue="" name="id_departamento" nullable="1" physicalName="id_departamento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>coluna que faz referrencia ao id do depattamento ao qual cada empregado pertence, usando como referencia a tabela departamentos.</remarks>
     </column>
-    <column id="COL45" populated="true" UUID="5fa5b532-e9aa-41bf-b593-e04a3c227d63" autoIncrement="false" autoIncrementSequenceName="empregados_id_empregado_seq" defaultValue="" name="id_supervisor" nullable="1" physicalName="id_supervisor" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL45" populated="true" UUID="5fa5b532-e9aa-41bf-b593-e04a3c227d63" autoIncrement="false" autoIncrementSequenceName="empregados_id_empregado_seq_1" defaultValue="" name="id_supervisor" nullable="1" physicalName="id_supervisor" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>coluna que corresponde ao id do supervisor dirreto de cada empregado.</remarks>
     </column>
     </folder>
@@ -174,17 +174,17 @@
     <column id="COL51" populated="true" UUID="5c264854-b00d-449e-92bf-d349c845103a" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_empregado_seq" defaultValue="" name="id_empregado" nullable="0" physicalName="id_empregado" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>coluna que corresponde ao id unico de cada empregado como uma PK, enquanto referencia a tabela empregados como uma FK</remarks>
     </column>
-    <column id="COL52" populated="true" UUID="9b393878-3017-444c-a23e-6ad96eab29a1" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_cargo_seq" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>coluna que faz referrencia ao id do cargo que era exercido por cada empregado, usando como referencia a tabela cargos.</remarks>
-    </column>
-    <column id="COL53" populated="true" UUID="c2077f79-48ee-4bc1-aec0-9f95af0a4f5e" autoIncrement="false" autoIncrementSequenceName="historico_cargos_data_inicial_seq" defaultValue="" name="data_inicial" nullable="0" physicalName="data_inicial" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL52" populated="true" UUID="c2077f79-48ee-4bc1-aec0-9f95af0a4f5e" autoIncrement="false" autoIncrementSequenceName="historico_cargos_data_inicial_seq" defaultValue="" name="data_inicial" nullable="0" physicalName="data_inicial" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks>coluna que armazena as informações sobre a data em que o empregado começou a exercer sua antiga função.</remarks>
     </column>
-    <column id="COL54" populated="true" UUID="0af2b8ff-b0da-4d01-97ca-7a8e629cd929" autoIncrement="false" autoIncrementSequenceName="historico_cargos_data_final_seq" defaultValue="" name="data_final" nullable="0" physicalName="data_final" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL53" populated="true" UUID="0af2b8ff-b0da-4d01-97ca-7a8e629cd929" autoIncrement="false" autoIncrementSequenceName="historico_cargos_data_final_seq" defaultValue="" name="data_final" nullable="0" physicalName="data_final" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks>coluna que armazena as informações sobre a data em que o empregado deixou de exercer sua antiga função.</remarks>
     </column>
-    <column id="COL55" populated="true" UUID="3b1ca2c5-85e8-4485-96d3-3a44f196d0a7" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_departamento_seq" defaultValue="" name="id_departamento" nullable="1" physicalName="id_departamento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL54" populated="true" UUID="3b1ca2c5-85e8-4485-96d3-3a44f196d0a7" autoIncrement="false" autoIncrementSequenceName="historico_cargos_id_departamento_seq" defaultValue="" name="id_departamento" nullable="1" physicalName="id_departamento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>coluna que faz referrencia ao id do depattamento ao qual cada empregado pertence ou pertenceu, usando como referencia a tabela departamentos.</remarks>
+    </column>
+    <column id="COL55" populated="true" UUID="2db4ca48-9b20-41b2-8a78-e2a3f9bdf86f" autoIncrement="false" autoIncrementSequenceName="cargos_id_cargo_seq" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>id individual de cada cargo, usado como chave primaria.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB503" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -194,69 +194,70 @@
     <folder id="FOLTAB504" populated="true" name="Indices" physicalName="Indices" type="4">
     <index id="IDX56" populated="true" UUID="7371e350-bfd6-40de-a6d2-beae8fb869a0" clustered="false" name="historico_cargos_pk" physicalName="historico_cargos_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC57" populated="true" UUID="9d1bc3d7-3929-4a07-8a47-97ff9466e758" ascendingOrDescending="UNSPECIFIED" column-ref="COL51" name="id_empregado" physicalName="id_empregado" />
+     <index-column id="IDC58" populated="true" UUID="61ae10ac-64d8-4b88-b9b6-de3e6ea56eac" ascendingOrDescending="UNSPECIFIED" column-ref="COL52" name="data_inicial" physicalName="data_inicial" />
     </index>
    </folder>
   </table>
-  <table id="TAB58" populated="true" UUID="c613e1c0-d388-4393-81ef-e3a08c2ecd5a" name="cargos" objectType="TABLE" physicalName="cargos" >
+  <table id="TAB59" populated="true" UUID="c613e1c0-d388-4393-81ef-e3a08c2ecd5a" name="cargos" objectType="TABLE" physicalName="cargos" >
    <remarks>tabela que armazena os cargos existentes assim como o salario minimo e maximo para cada cargo.</remarks>
-   <folder id="FOLTAB581" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL59" populated="true" UUID="8493b13c-83d7-4212-a223-358e082ea4e0" autoIncrement="false" autoIncrementSequenceName="cargos_id_cargo_seq" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+   <folder id="FOLTAB591" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL60" populated="true" UUID="8493b13c-83d7-4212-a223-358e082ea4e0" autoIncrement="false" autoIncrementSequenceName="cargos_id_cargo_seq_1" defaultValue="" name="id_cargo" nullable="0" physicalName="id_cargo" precision="10" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>id individual de cada cargo, usado como chave primaria.</remarks>
     </column>
-    <column id="COL60" populated="true" UUID="96380adc-0ead-4548-8c75-94da11436e0c" autoIncrement="false" autoIncrementSequenceName="cargos_cargo_seq" defaultValue="" name="cargo" nullable="0" physicalName="cargo" precision="35" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL61" populated="true" UUID="96380adc-0ead-4548-8c75-94da11436e0c" autoIncrement="false" autoIncrementSequenceName="cargos_cargo_seq" defaultValue="" name="cargo" nullable="0" physicalName="cargo" precision="35" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>nome de cada cargo exercido na empresa.</remarks>
     </column>
-    <column id="COL61" populated="true" UUID="a7ff338a-daf7-4381-89bf-7a54fc1ac5f1" autoIncrement="false" autoIncrementSequenceName="cargos_salario_minimo_seq" defaultValue="" name="salario_minimo" nullable="1" physicalName="salario_minimo" precision="8" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+    <column id="COL62" populated="true" UUID="a7ff338a-daf7-4381-89bf-7a54fc1ac5f1" autoIncrement="false" autoIncrementSequenceName="cargos_salario_minimo_seq" defaultValue="" name="salario_minimo" nullable="1" physicalName="salario_minimo" precision="8" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
      <remarks>valor minimo para o salario de cada cargo escrito em numeros decimais.</remarks>
     </column>
-    <column id="COL62" populated="true" UUID="d06da406-1990-4515-a7a0-09d093c8d96c" autoIncrement="false" autoIncrementSequenceName="cargos_salario_maximo_seq" defaultValue="" name="salario_maximo" nullable="1" physicalName="salario_maximo" precision="8" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+    <column id="COL63" populated="true" UUID="d06da406-1990-4515-a7a0-09d093c8d96c" autoIncrement="false" autoIncrementSequenceName="cargos_salario_maximo_seq" defaultValue="" name="salario_maximo" nullable="1" physicalName="salario_maximo" precision="8" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
      <remarks>valor maximo para o salario de cada cargo escrito em numeros decimais.</remarks>
     </column>
     </folder>
-    <folder id="FOLTAB583" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB593" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB582" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB592" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB584" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX63" populated="true" UUID="87dde4b1-bf84-42c7-8c39-5817d78ca895" clustered="false" name="cargos_pk" physicalName="cargos_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC64" populated="true" UUID="9e27bcd2-b8b6-422a-a748-b08aa3fa4020" ascendingOrDescending="UNSPECIFIED" column-ref="COL59" name="id_cargo" physicalName="id_cargo" />
+    <folder id="FOLTAB594" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX64" populated="true" UUID="87dde4b1-bf84-42c7-8c39-5817d78ca895" clustered="false" name="cargos_pk" physicalName="cargos_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC65" populated="true" UUID="9e27bcd2-b8b6-422a-a748-b08aa3fa4020" ascendingOrDescending="UNSPECIFIED" column-ref="COL60" name="id_cargo" physicalName="id_cargo" />
     </index>
-    <index id="IDX65" populated="true" UUID="70b4f7db-711a-4a2f-9afb-ddfe22ff42ec" clustered="false" name="cargos_idx" physicalName="cargos_idx" primaryKeyIndex="false" unique="true" >
-     <index-column id="IDC66" populated="true" UUID="97ee247a-c34e-4666-98b4-5a99d83e51d8" ascendingOrDescending="UNSPECIFIED" column-ref="COL60" name="cargo" physicalName="cargo" />
+    <index id="IDX66" populated="true" UUID="70b4f7db-711a-4a2f-9afb-ddfe22ff42ec" clustered="false" name="cargos_idx" physicalName="cargos_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC67" populated="true" UUID="97ee247a-c34e-4666-98b4-5a99d83e51d8" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="cargo" physicalName="cargo" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL67" populated="true" UUID="c4d0cc8f-53d1-4556-90ae-8a862a78e6c2" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="regioes_paises_fk" physicalName="regioes_paises_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP68" populated="true" UUID="d5170aae-cf70-4fb5-b318-a74bbe0f62fb" fk-column-ref="COL10" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL68" populated="true" UUID="c4d0cc8f-53d1-4556-90ae-8a862a78e6c2" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="regioes_paises_fk" physicalName="regioes_paises_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP69" populated="true" UUID="d5170aae-cf70-4fb5-b318-a74bbe0f62fb" fk-column-ref="COL10" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL69" populated="true" UUID="92441af9-3740-40ea-ae27-8b57f29b0b3c" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="paises_localizacao_fk" physicalName="paises_localizacao_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP70" populated="true" UUID="5c2c51ad-6f31-4109-928d-bca59a73c6f6" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
+   <relationship id="REL70" populated="true" UUID="92441af9-3740-40ea-ae27-8b57f29b0b3c" deferrability="7" deleteRule="3" fk-table-ref="TAB16" fkCardinality="7" identifying="false" name="paises_localizacao_fk" physicalName="paises_localizacao_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP71" populated="true" UUID="5c2c51ad-6f31-4109-928d-bca59a73c6f6" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
    </relationship>
-   <relationship id="REL71" populated="true" UUID="18662ffe-03f3-49f4-9ee3-c528c9411900" deferrability="7" deleteRule="3" fk-table-ref="TAB25" fkCardinality="7" identifying="false" name="localizacao_departamentos_fk" physicalName="localizacao_departamentos_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP72" populated="true" UUID="2a4b2006-c0fc-4149-aa15-b04bf87f0f66" fk-column-ref="COL29" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL17" />
+   <relationship id="REL72" populated="true" UUID="18662ffe-03f3-49f4-9ee3-c528c9411900" deferrability="7" deleteRule="3" fk-table-ref="TAB25" fkCardinality="7" identifying="false" name="localizacao_departamentos_fk" physicalName="localizacao_departamentos_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP73" populated="true" UUID="2a4b2006-c0fc-4149-aa15-b04bf87f0f66" fk-column-ref="COL29" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL17" />
    </relationship>
-   <relationship id="REL73" populated="true" UUID="e553787f-c14c-417b-8ee0-7d5fdc026a8e" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="7" identifying="false" name="departamentos_empregados_fk" physicalName="departamentos_empregados_fk" pk-table-ref="TAB25" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP74" populated="true" UUID="a36018a2-4c76-4186-864b-b9aec3631b3b" fk-column-ref="COL44" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL26" />
+   <relationship id="REL74" populated="true" UUID="e553787f-c14c-417b-8ee0-7d5fdc026a8e" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="7" identifying="false" name="departamentos_empregados_fk" physicalName="departamentos_empregados_fk" pk-table-ref="TAB25" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP75" populated="true" UUID="a36018a2-4c76-4186-864b-b9aec3631b3b" fk-column-ref="COL44" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL26" />
    </relationship>
-   <relationship id="REL75" populated="true" UUID="993f517b-22be-49fc-8c9d-0643f82f2e45" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="departamentos_historico_cargos_fk" physicalName="departamentos_historico_cargos_fk" pk-table-ref="TAB25" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP76" populated="true" UUID="b5512782-86dc-42a3-9ad6-81184f443bc2" fk-column-ref="COL55" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL26" />
+   <relationship id="REL76" populated="true" UUID="993f517b-22be-49fc-8c9d-0643f82f2e45" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="departamentos_historico_cargos_fk" physicalName="departamentos_historico_cargos_fk" pk-table-ref="TAB25" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP77" populated="true" UUID="b5512782-86dc-42a3-9ad6-81184f443bc2" fk-column-ref="COL54" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL26" />
    </relationship>
-   <relationship id="REL77" populated="true" UUID="bf0d5bfd-78f6-470d-b652-cd96b94199b3" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="7" identifying="false" name="empregados_empregados_fk" physicalName="empregados_empregados_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP78" populated="true" UUID="19557fe2-7d6b-4dc3-8d0e-2cc195d87132" fk-column-ref="COL45" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
+   <relationship id="REL78" populated="true" UUID="bf0d5bfd-78f6-470d-b652-cd96b94199b3" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="7" identifying="false" name="empregados_empregados_fk" physicalName="empregados_empregados_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP79" populated="true" UUID="19557fe2-7d6b-4dc3-8d0e-2cc195d87132" fk-column-ref="COL45" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
    </relationship>
-   <relationship id="REL79" populated="true" UUID="647c91da-f957-41d8-bee2-a6a8acc01634" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="empregados_historico_cargos_fk" physicalName="empregados_historico_cargos_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP80" populated="true" UUID="c7546769-c3e7-4055-85b7-c67daaf43e56" fk-column-ref="COL51" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
+   <relationship id="REL80" populated="true" UUID="a09d1e87-9e9e-4e6e-bbf0-2c6621ebf403" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="true" name="empregados_historico_cargos_fk" physicalName="empregados_historico_cargos_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP81" populated="true" UUID="f49330f3-ec1c-485a-9be9-4e2b87f436bf" fk-column-ref="COL51" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
    </relationship>
-   <relationship id="REL81" populated="true" UUID="1f939a3b-1871-4f3d-9baa-4f38fe640170" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="7" identifying="false" name="cargos_empregados_fk" physicalName="cargos_empregados_fk" pk-table-ref="TAB58" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP82" populated="true" UUID="f447678d-bf73-489c-a8d3-c9692c22e820" fk-column-ref="COL41" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL59" />
+   <relationship id="REL82" populated="true" UUID="1f939a3b-1871-4f3d-9baa-4f38fe640170" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="7" identifying="false" name="cargos_empregados_fk" physicalName="cargos_empregados_fk" pk-table-ref="TAB59" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP83" populated="true" UUID="f447678d-bf73-489c-a8d3-c9692c22e820" fk-column-ref="COL41" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL60" />
    </relationship>
-   <relationship id="REL83" populated="true" UUID="5bc73224-95e0-4001-8055-dad4a2edb5bd" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="true" name="cargos_historico_cargos_fk" physicalName="cargos_historico_cargos_fk" pk-table-ref="TAB58" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP84" populated="true" UUID="286abacf-3341-4441-a098-ddd98af7909c" fk-column-ref="COL52" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL59" />
+   <relationship id="REL84" populated="true" UUID="558a3c80-37f6-4965-adb6-063080b6e44b" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="cargos_historico_cargos_fk" physicalName="cargos_historico_cargos_fk" pk-table-ref="TAB59" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP85" populated="true" UUID="fb97d4d3-4844-4ae6-8d2c-c0c2b44445dd" fk-column-ref="COL55" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL60" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="hr"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="hr"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
@@ -265,17 +266,17 @@
   <table-pane table-ref="TAB16" x="289" y="35" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB25" x="288" y="241" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB35" x="293" y="406" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB50" x="623" y="210" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB58" x="775" y="444" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL67" pkConnection="0.5025641025641026" fkConnection="0.48717948717948717" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL69" pkConnection="0.9230769230769231" fkConnection="0.4336283185840708" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
-  <table-link relationship-ref="REL71" pkConnection="0.7259615384615384" fkConnection="0.49333333333333335" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL81" pkConnection="0.36470588235294116" fkConnection="0.6449704142011834" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
-  <table-link relationship-ref="REL83" pkConnection="0.49282296650717705" fkConnection="0.46464646464646464" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
-  <table-link relationship-ref="REL73" pkConnection="0.6088888888888889" fkConnection="0.3459715639810427" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
-  <table-link relationship-ref="REL77" pkConnection="0.18473895582329317" fkConnection="0.14201183431952663" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
-  <table-link relationship-ref="REL79" pkConnection="0.1952662721893491" fkConnection="0.2672811059907834" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="65"/>
-  <table-link relationship-ref="REL75" pkConnection="0.24705882352941178" fkConnection="0.9292929292929293" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-pane table-ref="TAB50" x="625" y="210" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB59" x="775" y="444" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL68" pkConnection="0.5025641025641026" fkConnection="0.48717948717948717" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL70" pkConnection="0.9230769230769231" fkConnection="0.4336283185840708" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
+  <table-link relationship-ref="REL72" pkConnection="0.7259615384615384" fkConnection="0.49333333333333335" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL82" pkConnection="0.36470588235294116" fkConnection="0.6449704142011834" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL74" pkConnection="0.6088888888888889" fkConnection="0.3459715639810427" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL78" pkConnection="0.18473895582329317" fkConnection="0.14201183431952663" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL76" pkConnection="0.24705882352941178" fkConnection="0.797979797979798" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL84" pkConnection="0.36363636363636365" fkConnection="0.6451612903225806" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL80" pkConnection="0.15384615384615385" fkConnection="0.20276497695852536" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="65"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">

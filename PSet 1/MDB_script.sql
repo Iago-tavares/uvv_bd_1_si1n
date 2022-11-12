@@ -1,4 +1,4 @@
-drop database uvv;
+drop database if exists uvv;
 
 drop user if exists iago;
 
@@ -119,56 +119,47 @@ ALTER TABLE historico_cargos COMMENT 'Tabela que armazena o histórico de cargos
 ALTER TABLE empregados ADD CONSTRAINT cargos_empregados_fk
 FOREIGN KEY (id_cargo)
 REFERENCES cargos (id_cargo)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE historico_cargos ADD CONSTRAINT cargos_historico_cargos_fk
 FOREIGN KEY (id_cargo)
 REFERENCES cargos (id_cargo)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE paises ADD CONSTRAINT regioes_paises_fk
 FOREIGN KEY (id_regiao)
 REFERENCES regioes (id_regiao)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE localizacao ADD CONSTRAINT paises_localizacao_fk
 FOREIGN KEY (id_pais)
 REFERENCES paises (id_pais)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE departamentos ADD CONSTRAINT localizacao_departamentos_fk
 FOREIGN KEY (id_localizacao)
 REFERENCES localizacao (id_localizacao)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE empregados ADD CONSTRAINT departamentos_empregados_fk
 FOREIGN KEY (id_departamento)
 REFERENCES departamentos (id_departamento)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE historico_cargos ADD CONSTRAINT departamentos_historico_cargos_fk
 FOREIGN KEY (id_departamento)
 REFERENCES departamentos (id_departamento)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE empregados ADD CONSTRAINT empregados_empregados_fk
 FOREIGN KEY (id_supervisor)
 REFERENCES empregados (id_empregado)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
 ALTER TABLE historico_cargos ADD CONSTRAINT empregados_historico_cargos_fk
 FOREIGN KEY (id_empregado)
 REFERENCES empregados (id_empregado)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+;
 
  --  processo de popular a tabela regioes  
 
